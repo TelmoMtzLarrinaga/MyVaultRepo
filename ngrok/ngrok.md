@@ -115,3 +115,15 @@ The agent will be configured with the allow CIDRs and the deny CIDRs on the othe
 Errors are returned to HTTP endpoints if connections aren't allowed: [ERR_NGROK_3205](https://ngrok.com/docs/errors/err_ngrok_3205/) / 403. Lastly when IP restriction module is enforced the ip_policy.decision field for [http_request_complete.v0](https://ngrok.com/docs/obs/reference/#http-request-complete) event is filled with whether the request was allowed or denied. 
 
 ![IP restrictions with Edge.](https://github.com/TelmoMtzLarrinaga/MyVaultRepo/blob/main/ngrok/images/IP%20Restriction%20with%20Edge.png)
+
+### Mutual TLS
+
+Mutual TLS module performs mTLS authentication when the ngrok edge terminates TLS on incoming connection to your HTTP endpoint where the client must present a valid x509 cert and key signed by a specified by one of the trusted CA provided to the module. Both the client and the server authenticate each other using X.509 certificates.  
+
+Note: x509 certificates contain a basic constrain attribute called cA which defines whether or not the certificate may be used as a CA. For more information about basic constraints refer to the [official documentation](https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.9). 
+
+As it was the case with IP Restrictions module, we can either configure the ngrok agent with a PEM encoded certificate authorities list file or we can rely on edge configuration through 'certificate_authorities.id' . This last approach is more a resource oriented approach using the ngrok cloud TLS certificate authorities dashboard.
+
+This module does add headers to the HTTP request sent to your upstream service with details regarding the client certificate presented at the mTLS handshake.
+
+![mutual TLS](https://github.com/TelmoMtzLarrinaga/MyVaultRepo/blob/main/ngrok/images/Mutual%20TLS.png)

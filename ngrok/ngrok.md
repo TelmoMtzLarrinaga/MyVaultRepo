@@ -45,3 +45,13 @@ The forwarding URL is the URL that will be available to anyone on the internet. 
 **TLS Certificates**: when traffic reaches an HTTPS endpoint or a TLS endpoint instead of passing the encrypted traffic directly to the destination server, ngrok decrypts it at its own servers for modification before re encrypting and forwarding it to the intended destination. For your endpoints it is recommended that you always choose to use [Automated TLS Certificates](https://ngrok.com/docs/network-edge/tls-certificates/#automated). 
 
 ![Edge middleware for incoming traffic.](https://github.com/TelmoMtzLarrinaga/MyVaultRepo/blob/main/ngrok/images/Edge%20middleware%20for%20incoming%20traffic.png)
+
+## Additional features
+
+As every other cloud service ngrok includes identity and access management features. It has concepts such as principals, bot users (service accounts), role base access control (RBAC), account domain controls,... .  
+
+One of the key aspects of ngrok [IAM](https://ngrok.com/docs/iam/) are bot users where other platforms sometimes call this concepts service accounts. Bot users are intended for automated systems that programmatically interact with your ngrok accounts either by starting ngrok agents or making requests to the API. As every other user they must authenticate themselves with ngrok.  
+
+ngrok provides [observability](https://ngrok.com/docs/obs/) that covers from changes to your account (audit events) to when traffic transits through your endpoints (traffic events). Users, in turn may subscribe, filter and publish these events and do with them a number of different things. 
+
+![Observability pillars of ngrok.](https://github.com/TelmoMtzLarrinaga/MyVaultRepo/blob/main/ngrok/images/Observability%20pillars%20of%20ngrok.png)

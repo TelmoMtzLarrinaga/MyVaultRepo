@@ -127,3 +127,14 @@ As it was the case with IP Restrictions module, we can either configure the ngro
 This module does add headers to the HTTP request sent to your upstream service with details regarding the client certificate presented at the mTLS handshake.
 
 ![mutual TLS](https://github.com/TelmoMtzLarrinaga/MyVaultRepo/blob/main/ngrok/images/Mutual%20TLS.png)
+
+### OAuth
+
+The OAuth module enforces a browser-based OAuth flow in front of your HTTP endpoints to an identity provider like Google. In this case, we are going to be the resource owner and ngrok will be the client.  
+
+Usually you, as resource owner, are presented with a Consent form based on the Scopes requested by the Client as well as a Redirect URI and a Response Type. Instead, we are already granting this at the Google OAuth consent screen at Google Cloud Platform and creating credentials to the Client ID and Client Secret. For application that use the OAuth protocol to call Google APIs, you can use the Client ID to generate an access token. This way your application will have the ability to securely communicate and access Google APIs on behalf of the client that made the connection if your application needs access to Google Calendar for example. 
+
+OAuth is an authorization flow and in order to provide authentication we need to add a layer of Open ID Connect. The OIDC layer on top of OAuth that provides more information to the client about the identity of the user.
+
+![Simplified OAuth flow.](https://github.com/TelmoMtzLarrinaga/MyVaultRepo/blob/main/ngrok/images/Simplified%20OAuth%20flow.png)
+

@@ -44,7 +44,7 @@ The forwarding URL is the URL that will be available to anyone on the internet. 
 
 **TLS Certificates**: when traffic reaches an HTTPS endpoint or a TLS endpoint instead of passing the encrypted traffic directly to the destination server, ngrok decrypts it at its own servers for modification before re encrypting and forwarding it to the intended destination. For your endpoints it is recommended that you always choose to use [Automated TLS Certificates](https://ngrok.com/docs/network-edge/tls-certificates/#automated). 
 
-![Edge middleware for incoming traffic.](https://github.com/TelmoMtzLarrinaga/MyVaultRepo/blob/main/ngrok/images/Edge%20middleware%20for%20incoming%20traffic.png)
+![Edge middleware for incoming traffic.](images/Edge%20middleware%20for%20incoming%20traffic.png)
 
 ## Additional features
 
@@ -54,13 +54,13 @@ One of the key aspects of ngrok [IAM](https://ngrok.com/docs/iam/) are bot users
 
 ngrok provides [observability](https://ngrok.com/docs/obs/) that covers from changes to your account (audit events) to when traffic transits through your endpoints (traffic events). Users, in turn may subscribe, filter and publish these events and do with them a number of different things. 
 
-![Observability pillars of ngrok.](https://github.com/TelmoMtzLarrinaga/MyVaultRepo/blob/main/ngrok/images/Observability%20pillars%20of%20ngrok.png)
+![Observability pillars of ngrok.](images/Observability%20pillars%20of%20ngrok.png)
 
 # In Detph
 
 ## Help Command
 
-![ngrok help command.](https://github.com/TelmoMtzLarrinaga/MyVaultRepo/blob/main/ngrok/images/ngrok%20help%20command.png)
+![ngrok help command.](images/ngrok%20help%20command.png)
 
 ## Security
 
@@ -104,7 +104,7 @@ Its a rather straightforward authentication that has several things to take into
 
 **Note**: *Basic Auth is not a supported HTTPS Edge module yet*. 
 
-![Basic authentication flow.](https://github.com/TelmoMtzLarrinaga/MyVaultRepo/blob/main/ngrok/images/Basic%20authentication%20flow.png)
+![Basic authentication flow.](images/Basic%20authentication%20flow.png)
 
 ### IP Restrictions
 
@@ -114,7 +114,7 @@ The agent will be configured with the allow CIDRs and the deny CIDRs on the othe
 
 Errors are returned to HTTP endpoints if connections aren't allowed: [ERR_NGROK_3205](https://ngrok.com/docs/errors/err_ngrok_3205/) / 403. Lastly when IP restriction module is enforced the ip_policy.decision field for [http_request_complete.v0](https://ngrok.com/docs/obs/reference/#http-request-complete) event is filled with whether the request was allowed or denied. 
 
-![IP restrictions with Edge.](https://github.com/TelmoMtzLarrinaga/MyVaultRepo/blob/main/ngrok/images/IP%20Restriction%20with%20Edge.png)
+![IP restrictions with Edge.](images/IP%20Restriction%20with%20Edge.png)
 
 ### Mutual TLS
 
@@ -126,7 +126,7 @@ As it was the case with IP Restrictions module, we can either configure the ngro
 
 This module does add headers to the HTTP request sent to your upstream service with details regarding the client certificate presented at the mTLS handshake.
 
-![mutual TLS](https://github.com/TelmoMtzLarrinaga/MyVaultRepo/blob/main/ngrok/images/Mutual%20TLS.png)
+![mutual TLS](images/Mutual%20TLS.png)
 
 ### OAuth
 
@@ -136,7 +136,7 @@ Usually you, as resource owner, are presented with a Consent form based on the S
 
 OAuth is an authorization flow and in order to provide authentication we need to add a layer of Open ID Connect. The OIDC layer on top of OAuth that provides more information to the client about the identity of the user.
 
-![Simplified OAuth flow.](https://github.com/TelmoMtzLarrinaga/MyVaultRepo/blob/main/ngrok/images/Simplified%20OAuth%20flow.png)
+![Simplified OAuth flow.](images/Simplified%20OAuth%20flow.png)
 
 ### Request and Response Headers
 
@@ -146,7 +146,7 @@ Both of these modules add an remove headers from either HTTP request or response
 
 You can add and remove headers in a wide variety of configurations but bear in mind while populating some variables with values they only will be enabled if the required module is active otherwise they will be empty. On the following list you may find a comprehensive [list](https://ngrok.com/docs/http/request-headers/#backend) of possible variables. 
 
-![Request and Response headers acting stage.](https://github.com/TelmoMtzLarrinaga/MyVaultRepo/blob/main/ngrok/images/Request%20and%20Response%20headers%20acting%20stage.png)
+![Request and Response headers acting stage.](images/Request%20and%20Response%20headers%20acting%20stage.png)
 
 ### SAML
 
@@ -154,7 +154,7 @@ SAML stands for Security Assertion Markup Language,  which is a XML-based-open s
 
 Upstream servers behind a SAML protected endpoint can safely assume that requests are from users authorized by the SAML IdP to access the protected resource. SAML greatly relies on single sing-on scheme which allows to log in with a single ID to any of several related, yet independent software systems. When planning for SAML there are three variants to take care of: IdP, End User and the Service Provider. Next we can find a high level overview of the SAML workflow. 
 
-![SAML simplified workflow](https://github.com/TelmoMtzLarrinaga/MyVaultRepo/blob/main/ngrok/images/SAML%20simplified%20workflow.png)
+![SAML simplified workflow](images/SAML%20simplified%20workflow.png)
 
 
 ### Traffic Policy
@@ -167,4 +167,4 @@ One of the most interesting actions is JSON Web Token validation at cloud edge b
 
 As another filtering policy there is the user agent filter, it is not exactly part of traffic policy but its a similar kind of work. Where the edge will read the User-Agent header from an HTTP request to identify the user agent responsible for making a given HTTP request and thus enables you to block accessing your web application. Its another rule that will be evaluated at this module.
 
-![Traffic Policy structure](https://github.com/TelmoMtzLarrinaga/MyVaultRepo/blob/main/ngrok/images/Traffic%20Policy%20structure.png)
+![Traffic Policy structure](images/Traffic%20Policy%20structure.png)

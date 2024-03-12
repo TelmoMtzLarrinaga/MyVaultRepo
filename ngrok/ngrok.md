@@ -92,7 +92,7 @@ Following there are some recommendation for ensuring you use ngrok securely.
 
 ### Basic Authentication
 
-This is a module that enforces HTTP Basic Authentication in front of your endpoints. Only requests with a valid username and passwords will be sent to your upstream service, all others will be rejected with a 401 Unauthorized response. You can find more information here. 
+This is a module that enforces HTTP Basic Authentication in front of your endpoints. Only requests with a valid username and passwords will be sent to your upstream service, all others will be rejected with a 401 Unauthorized response. You can find more information [here](https://ngrok.com/docs/http/basic-auth/?cty=agent-cli#overview). 
 
 Its a rather straightforward authentication that has several things to take into account. For starters, you either use basic auth on the ngrok agent or on you upstream service. It is not recommended to have this type of basic authentication in both, because it requires both credentials to be the same otherwise a failure will occur in any of the steps. If basic auth is required in both steps you can use the Request Headers module to rewrite the authorization header to the value expected by the upstream service. 
 
@@ -105,3 +105,13 @@ Its a rather straightforward authentication that has several things to take into
 **Note**: *Basic Auth is not a supported HTTPS Edge module yet*. 
 
 ![Basic authentication flow.](https://github.com/TelmoMtzLarrinaga/MyVaultRepo/blob/main/ngrok/images/Basic%20authentication%20flow.png)
+
+### IP Restrictions
+
+The IP restriction module allows or denies traffic based on the source IP of the connections that was initiated to your ngrok endpoint.  You define rules which allow or deny connections from IPv4 or IPv6 CIDR blocks.  A connection will be allowed as long as is present in a whitelist and its not present in any denylist. If this was the case, the denylist takes precedence over everything else. All policies are grouped together for evaluation and they will be evaluated against the layer 4 source IP of a connection and not any HTTP headers. 
+
+The agent will be configured with the allow CIDRs and the deny CIDRs on the other hand at the edge we can configure a set of IP policies that will be used to check if a source IP is allowed access. IP restrictions is part of HTTPS Edge module. For more information refer to [Edge Route IP Restriction Module](https://ngrok.com/docs/api/resources/edge-route-ip-restriction-module/). 
+
+Errors are returned to HTTP endpoints if connections aren't allowed: [ERR_NGROK_3205](https://ngrok.com/docs/errors/err_ngrok_3205/) / 403. Lastly when IP restriction module is enforced the ip_policy.decision field for [http_request_complete.v0](https://ngrok.com/docs/obs/reference/#http-request-complete) event is filled with whether the request was allowed or denied. 
+
+![IP restrictions with Edge.](https://github.com/TelmoMtzLarrinaga/MyVaultRepo/blob/main/ngrok/images/IP%20Restriction%20with%20Edge.png)

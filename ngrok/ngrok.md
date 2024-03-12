@@ -148,3 +148,11 @@ You can add and remove headers in a wide variety of configurations but bear in m
 
 ![Request and Response headers acting stage.](https://github.com/TelmoMtzLarrinaga/MyVaultRepo/blob/main/ngrok/images/Request%20and%20Response%20headers%20acting%20stage.png)
 
+### SAML
+
+SAML stands for Security Assertion Markup Language,  which is a XML-based-open standard for transferring identity data between two parties: an identity provider and a service provider. In our case the identity provider would be the IdP that ngrok uses and the service provider would be ngrok agent. 
+
+Upstream servers behind a SAML protected endpoint can safely assume that requests are from users authorized by the SAML IdP to access the protected resource. SAML greatly relies on single sing-on scheme which allows to log in with a single ID to any of several related, yet independent software systems. When planning for SAML there are three variants to take care of: IdP, End User and the Service Provider. Next we can find a high level overview of the SAML workflow. 
+
+![SAML simplified workflow](https://github.com/TelmoMtzLarrinaga/MyVaultRepo/blob/main/ngrok/images/SAML%20simplified%20workflow.png)
+

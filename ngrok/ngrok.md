@@ -11,3 +11,15 @@ This unique architecture confers several important benefits over traditional rev
 If you want to know more about ngrok and clearly convey what advantages is provides you can learn more in the following link: [why ngrok](https://ngrok.com/docs/why-ngrok/)
 
 ![High level overview of how ngrok operates.](https://github.com/TelmoMtzLarrinaga/MyVaultRepo/blob/main/ngrok/images/High%20level%20overview%20of%20how%20ngrok%20operates.png)
+
+## QuickStart
+
+In order to install ngrok agent on your local environment so you can make your local applications available through a global URL endpoint you need to follow certain steps. [Sign up](https://ngrok.com/signup) for an ngrok account to be able to the online dashboards and GUI. [Download and install](https://ngrok.com/download) the ngrok agent for your local environment. Lastly add you auth-token to the default ngrok.yml [configuration file](https://ngrok.com/docs/agent/config/) allowing you to connect to your ngrok account. 
+
+Once that everything is correctly set up, assuming you have a working web application listening on "http://localhost:8080" or a different URL putt your application online using the following command: 
+
+- ``ngrok http http://localhost:8080``
+
+The forwarding URL is the URL that will be available to anyone on the internet. But if you want to use the same URL each time you use ngrok instead of a ephemeral domain you can create a static domain. But remember we just used the ngrok agent in its CLI form but it can be used in other types of flavors. 
+
+![Steps to set up ngrok.](https://github.com/TelmoMtzLarrinaga/MyVaultRepo/blob/main/ngrok/images/Steps%20to%20set%20up%20ngrok.png)

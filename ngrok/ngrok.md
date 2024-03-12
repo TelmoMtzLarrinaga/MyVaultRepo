@@ -156,3 +156,15 @@ Upstream servers behind a SAML protected endpoint can safely assume that request
 
 ![SAML simplified workflow](https://github.com/TelmoMtzLarrinaga/MyVaultRepo/blob/main/ngrok/images/SAML%20simplified%20workflow.png)
 
+
+### Traffic Policy
+
+We can configure inbound and outbound rules to our endpoints so we can influence and control traffic to and from our upstream service. Traffic will be filtered using Common Expression Language expressions and each policy must be evaluated true in order for the rule to take effect. In the following link we can find a list of some of the variables we are able to make expressions for. 
+
+Policy rules will be composed of expressions that filter the traffic on which they are applicable and actions that should take effect. Policy rules with their attached expressions and actions will be evaluated in order and the actions they may be able to take after an expression is evaluated are the following ones. 
+
+One of the most interesting actions is JSON Web Token validation at cloud edge before routing the traffic to upstream service. You can configure the agent and the configuration will be pushed to the global network which secures traffic before it hits our network. 
+
+As another filtering policy there is the user agent filter, it is not exactly part of traffic policy but its a similar kind of work. Where the edge will read the User-Agent header from an HTTP request to identify the user agent responsible for making a given HTTP request and thus enables you to block accessing your web application. Its another rule that will be evaluated at this module.
+
+![Traffic Policy structure](https://github.com/TelmoMtzLarrinaga/MyVaultRepo/blob/main/ngrok/images/Traffic%20Policy%20structure.png)

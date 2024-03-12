@@ -55,3 +55,37 @@ One of the key aspects of ngrok [IAM](https://ngrok.com/docs/iam/) are bot users
 ngrok provides [observability](https://ngrok.com/docs/obs/) that covers from changes to your account (audit events) to when traffic transits through your endpoints (traffic events). Users, in turn may subscribe, filter and publish these events and do with them a number of different things. 
 
 ![Observability pillars of ngrok.](https://github.com/TelmoMtzLarrinaga/MyVaultRepo/blob/main/ngrok/images/Observability%20pillars%20of%20ngrok.png)
+
+# In Detph
+
+## Help Command
+
+![ngrok help command.](https://github.com/TelmoMtzLarrinaga/MyVaultRepo/blob/main/ngrok/images/ngrok%20help%20command.png)
+
+## Security
+
+We need to focus on the authentication capabilities of ngrok and how complex they may be. Below we can find an index of the different solutions ngrok provides. Be mindful for they might be configuration for the Edge as a hole or for a single Route, ... . 
+
+- Basic Authentication. 
+
+- IP Restriction. 
+
+- Mutual TLS. 
+
+- OAuth & OpenID Connect. 
+
+- Request & Response headers. 
+
+- SAML. 
+
+- (TLS Termination). 
+
+- Traffic Policy. 
+
+Following there are some recommendation for ensuring you use ngrok securely. 
+
+**Authtokens**. Each ngrok agent authenticates with an authtoken which will appear on its configuration file its recommended to have each authtoken be attached to a single agent. Authtoken ACL (Access Control Lists) restrict what actions can a ngrok agent connecting with a specific authtoken is allowed to make. 
+
+**Encryption**. Usually TLS is terminated at the edge but if the ngrok agent and your local service is not running on the same machine as the ngrok agent, it is recommend that TLS is maintained between the ngrok agent to the upstream service. Additionally, for HTTPS endpoints ngrok takes care of TLS certificates automatically. 
+
+**Dashboard**. For authenticating access to the dashboard, ngrok has features for role base access control which we are able to configure permissions for groups of users within your team. 

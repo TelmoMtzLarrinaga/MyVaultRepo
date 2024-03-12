@@ -89,3 +89,19 @@ Following there are some recommendation for ensuring you use ngrok securely.
 **Encryption**. Usually TLS is terminated at the edge but if the ngrok agent and your local service is not running on the same machine as the ngrok agent, it is recommend that TLS is maintained between the ngrok agent to the upstream service. Additionally, for HTTPS endpoints ngrok takes care of TLS certificates automatically. 
 
 **Dashboard**. For authenticating access to the dashboard, ngrok has features for role base access control which we are able to configure permissions for groups of users within your team. 
+
+### Basic Authentication
+
+This is a module that enforces HTTP Basic Authentication in front of your endpoints. Only requests with a valid username and passwords will be sent to your upstream service, all others will be rejected with a 401 Unauthorized response. You can find more information here. 
+
+Its a rather straightforward authentication that has several things to take into account. For starters, you either use basic auth on the ngrok agent or on you upstream service. It is not recommended to have this type of basic authentication in both, because it requires both credentials to be the same otherwise a failure will occur in any of the steps. If basic auth is required in both steps you can use the Request Headers module to rewrite the authorization header to the value expected by the upstream service. 
+
+**Credentials**:= A list of username/password pairs specified as 'username:password'. 
+
+**Errors**:= HTTP Status 401 is returned in case a request is disallowed. 
+
+**Events**:= When this module is enabled, it populates the following fields in the http_request_complete.v0 event. [basic_auth.decision ; basic_auth.username] 
+
+**Note**: *Basic Auth is not a supported HTTPS Edge module yet*. 
+
+![Basic authentication flow.](https://github.com/TelmoMtzLarrinaga/MyVaultRepo/blob/main/ngrok/images/Basic%20authentication%20flow.png)

@@ -10,7 +10,7 @@ This unique architecture confers several important benefits over traditional rev
 
 If you want to know more about ngrok and clearly convey what advantages is provides you can learn more in the following link: [why ngrok](https://ngrok.com/docs/why-ngrok/)
 
-![High level overview of how ngrok operates.](https://github.com/TelmoMtzLarrinaga/MyVaultRepo/blob/main/ngrok/images/High%20level%20overview%20of%20how%20ngrok%20operates.png)
+![High level overview of how ngrok operates.](images/High%20level%20overview%20of%20how%20ngrok%20operates.png)
 
 ## QuickStart
 

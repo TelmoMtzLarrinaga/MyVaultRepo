@@ -110,3 +110,26 @@ the deployment that contains said configMap and the files on the data field. Tem
 renderer will extract the necessary files from the configMap and create configuration
 files from them. These configuration files will be used to serve the services that
 containers are handling.
+
+Remember how files are added to the data field of a configMap.
+
+```
+
+kind: ConfigMap
+metadata:
+  name: game-demo
+data:
+  # property-like keys; each key maps to a simple value
+  player_initial_lives: "3"
+  ui_properties_file_name: "user-interface.properties"
+
+  # file-like keys
+  game.properties: |
+    enemy.types=aliens,monsters
+    player.maximum-lives=5    
+  user-interface.properties: |
+    color.good=purple
+    color.bad=yellow
+    allow.textmode=true
+   
+```

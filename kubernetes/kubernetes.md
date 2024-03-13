@@ -88,3 +88,25 @@ ways. We can either install the controller through kustomize or through helm cha
 whatever we find more comfortable.
 
 ![SealedSecrets Workflow](images/SealedSecret.png)
+
+## Template Renderer
+
+Services use ConfigMaps (for non-sensitive data) and Secrets (for sensitive data) to 
+store configuration data in the form of environment variables and are two separate 
+files that are passed to the container on deployment. Template Renderer allows to have 
+a single configuration file and facilitates full visibility of the service 
+configuration file.
+
+In reality, template renderer is quite simple. Service need configuration files, these
+configuration files will be created at init time by rendering templates defined on 
+configMaps. Its goal will be variable substitution, which normally involves 
+sensitive data such as secrets or variables to indicate a different cluster for 
+example. If there is no variable to substitute you dont need template renderer.
+
+![Template Renderer](images/Template%20Renderer.png)
+
+You create a configMap that will hold two separate files, then you mount a volume onto
+the deployment that contains said configMap and the files on the data field. Template
+renderer will extract the necessary files from the configMap and create configuration
+files from them. These configuration files will be used to serve the services that
+containers are handling.

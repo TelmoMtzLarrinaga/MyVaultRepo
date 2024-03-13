@@ -22,7 +22,7 @@ Once that everything is correctly set up, assuming you have a working web applic
 
 The forwarding URL is the URL that will be available to anyone on the internet. But if you want to use the same URL each time you use ngrok instead of a ephemeral domain you can create a static domain. But remember we just used the ngrok agent in its CLI form but it can be used in other types of flavors. 
 
-![Steps to set up ngrok.](https://github.com/TelmoMtzLarrinaga/MyVaultRepo/blob/main/ngrok/images/Steps%20to%20set%20up%20ngrok.png)
+![Steps to set up ngrok.](images/Steps%20to%20set%20up%20ngrok.png)
 
 ## Platform
 

@@ -138,11 +138,11 @@ OAuth is an authorization flow and in order to provide authentication we need to
 
 ![Simplified OAuth flow.](images/Simplified%20OAuth%20flow.png)
 
+Digging into the mechanics, the ngrok edge is acting as a lightweight policy enforcement point ensuring that any traffic attempting to enter the tunnel has an access token created by the corresponding OAuth provider.
+
 ### Request and Response Headers
 
 Both of these modules add an remove headers from either HTTP request or response. In the case of requests headers, they will be added before sending them to the upstream service although changes made to request will not be visible to other modules just your upstream service. On the other hand, if headers are added or removed when sending them to the client we are dealing with HTTP responses. 
-
- 
 
 You can add and remove headers in a wide variety of configurations but bear in mind while populating some variables with values they only will be enabled if the required module is active otherwise they will be empty. On the following list you may find a comprehensive [list](https://ngrok.com/docs/http/request-headers/#backend) of possible variables. 
 

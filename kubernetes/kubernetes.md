@@ -1,5 +1,7 @@
 # Kubernetes Concepts
 
+![Kubernetes logo](images/Kubernetes-Logo.png)
+
 A high level overview of Kubernetes specific concepts.
 
 ## ConfigMap Generator

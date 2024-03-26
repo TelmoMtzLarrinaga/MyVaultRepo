@@ -20,7 +20,17 @@ define the blueprint of a functionality.
 
 ## Using kubectl
 
+The kubectl is the way we interact with Kubernetes through the command line 
+tool. While interacting with Kubernetes we can either take a declarative or an 
+imperative approach. The declarative approach uses YAML manifest files to manage
+Kubernetes objects. One of the key advantages of using this kind of approach is 
+because it focused on reproducibility and improved maintenance. Usually the
+manifest are checked onto a version control system and offer a way to keep track
+of the changes. This kind of approach is the one recommended for production environments.
 
+Kubectl has a predefined format to all of its commands. 
+
+![Kubectl command structure.](images/Kubectl%20Command%20Structure.png)
 
 ## ConfigMap Generator
 

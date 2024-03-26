@@ -32,6 +32,29 @@ Kubectl has a predefined format to all of its commands.
 
 ![Kubectl command structure.](images/Kubectl%20Command%20Structure.png)
 
+## Containers
+
+As we know, Kubernetes is a container orchestrator that uses a container runtime
+to instantiate container inside of pods, the least deployable unit. A container
+will package an application into a single unit of software including its 
+runtime environment and configuration. Its goal is to decouple the runtime 
+environment from the application to avoid environment specific type of errors.
+
+The container runtime engine such as Docker is the software component that can 
+run containers on a host operating system. A container orchistrator uses a 
+container runtime engine to instantiate a container while adding features on top
+of it.
+
+So a developer will define the ContainerFile for its application and how its 
+supposed to be packaged. Then this container file can be build and turned into
+an image which can be published on a registry for the stakeholders to use. 
+Lastly a tool such as Kubernetes will use a runtime engine to instantiate those
+containers adding additional features on top of them. 
+
+![Container Lifecycle](images/Container%20Lifecycle.png)
+
+To summarize, the Dockerfile is a blueprint of how the software should be built, the image is the artifact produced by the process, and the container is an running instance of the image serving the application
+
 ## ConfigMap Generator
 
 Usually deployments make use of ConfigMap variables to launch the necessary 

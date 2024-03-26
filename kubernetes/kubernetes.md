@@ -4,6 +4,24 @@
 
 A high level overview of Kubernetes specific concepts.
 
+## High-Level Architecture
+
+Control plane node exposes the Kubernetes API through the API server and manages
+the nodes that make up the cluster, that is responding to cluster events. Worker
+node on the other hands execute workloads in container managed by Pods. 
+
+![High Level Kubernetes Architecture](images/High%20Level%20Kubernetes%20Architecture.png)
+
+Kubernetes objects stand as a blueprint to deploy a number of different 
+instances. For example, a pod in Kubernetes is the least deployable unit in 
+and there can be many instances of it with their own identity. We can think of
+Kubernetes primitive objects as a class in object-oriented programming which
+define the blueprint of a functionality.
+
+## Using kubectl
+
+
+
 ## ConfigMap Generator
 
 Usually deployments make use of ConfigMap variables to launch the necessary 

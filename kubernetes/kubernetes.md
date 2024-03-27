@@ -64,6 +64,15 @@ streaming them using the `-f` flag. But when a container fails and restarts, we
 are not able to retrieve its logs. We need to use the `-p` which prints the logs
 for the previous instance of the container in a pod. 
 
+## Jobs and Cronjobs
+
+Jobs manage pods to complete a finite operation and once the operation has been
+completed no more pods are created. On the other hand, if we want to periodically
+run an operation we can use Cronjobs. Cronjobs will periodically create jobs 
+that in turn will manage pods for the operation completion.
+
+![Job and Cronjobs Relationship](images/Job%20and%20Cronjob.png)
+
 ## ConfigMap Generator
 
 Usually deployments make use of ConfigMap variables to launch the necessary 

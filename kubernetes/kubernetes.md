@@ -71,7 +71,7 @@ completed no more pods are created. On the other hand, if we want to periodicall
 run an operation we can use Cronjobs. Cronjobs will periodically create jobs 
 that in turn will manage pods for the operation completion.
 
-![Job and Cronjobs Relationship](images/Job%20and%20Cronjob.png)
+![Job and Cronjobs Relationship](images/Job%20and%20Cronjobs.png)
 
 ## ConfigMap Generator
 

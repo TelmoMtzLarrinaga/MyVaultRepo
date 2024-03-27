@@ -53,7 +53,16 @@ containers adding additional features on top of them.
 
 ![Container Lifecycle](images/Container%20Lifecycle.png)
 
-To summarize, the Dockerfile is a blueprint of how the software should be built, the image is the artifact produced by the process, and the container is an running instance of the image serving the application
+To summarize, the Dockerfile is a blueprint of how the software should be built, the 
+image is the artifact produced by the process, and the container is an running 
+instance of the image serving the application
+
+Bear in mind that not all container launches will be successful some of them 
+will need a little bit of debugging for it to work. We can get the logs of a 
+container through the `kubectl logs` command. Realtime logs can be inspected by 
+streaming them using the `-f` flag. But when a container fails and restarts, we
+are not able to retrieve its logs. We need to use the `-p` which prints the logs
+for the previous instance of the container in a pod. 
 
 ## ConfigMap Generator
 
